@@ -1,8 +1,11 @@
 <?php
+
+use Causal\FalProtect\Middleware\HttpRangeFileMiddleware;
+
 return [
     'frontend' => [
-        'causal/fal-protect/fetch-file' => [
-            'target' => \Causal\FalProtect\Middleware\FileMiddleware::class,
+        HttpRangeFileMiddleware::MIDDLEWARE_IDENTIFIER => [
+            'target' => HttpRangeFileMiddleware::class,
             'after' => [
                 'typo3/cms-frontend/authentication',
                 'typo3/cms-frontend/site',
